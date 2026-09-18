@@ -1,0 +1,704 @@
+```html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamad Dimas Yudistira Saputra - CV & Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white !important; color: black !important; }
+            .shadow-xl, .shadow-md, .shadow-lg { box-shadow: none !important; }
+            .border { border-color: #e5e7eb !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 no-print transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="flex items-center space-x-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                    <span class="bg-primary-600 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">MD</span>
+                    <span>Dimas Yudistira</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#tentang" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Tentang</a>
+                    <a href="#pendidikan" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pendidikan</a>
+                    <a href="#pengalaman" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pengalaman</a>
+                    <a href="#keahlian" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Keahlian</a>
+                    <a href="#tes-mengetik" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Tes Mengetik</a>
+                    <a href="#kontak" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Kontak</a>
+                </nav>
+
+                <div class="flex items-center space-x-3">
+                    <!-- Dark mode toggle -->
+                    <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all focus:outline-none" title="Ubah Tema">
+                        <i id="themeIcon" class="fas fa-moon text-lg"></i>
+                    </button>
+
+                    <!-- Print CV Button -->
+                    <button onclick="window.print()" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl transition-all">
+                        <i class="fas fa-print mr-2"></i> Cetak CV
+                    </button>
+
+                    <!-- Mobile menu toggle button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#tentang" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tentang</a>
+            <a href="#pendidikan" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Pendidikan</a>
+            <a href="#pengalaman" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Pengalaman</a>
+            <a href="#keahlian" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Keahlian</a>
+            <a href="#tes-mengetik" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Tes Mengetik</a>
+            <a href="#kontak" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Kontak</a>
+            <button onclick="window.print()" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-slate-800">
+                <i class="fas fa-print mr-2"></i> Cetak PDF / Print
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="tentang" class="relative py-12 md:py-20 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Profile Image / Avatar -->
+                <div class="lg:col-span-4 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-blue-400 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                        <div class="relative w-48 h-48 sm:w-60 sm:h-60 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 bg-slate-200 dark:bg-slate-700 shadow-2xl flex items-center justify-center">
+                            <img src="https://i.ibb.co.com/kVZTkf0v/IMG-7717.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0284c7/ffffff?text=Dimas+Yudistira';" alt="Muhamad Dimas Yudistira Saputra" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bio Info -->
+                <div class="lg:col-span-8 text-center lg:text-left space-y-4">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-ping"></span>
+                        Siap Bekerja & Berkontribusi
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                        Muhamad Dimas Yudistira Saputra
+                    </h1>
+
+                    <p class="text-lg sm:text-xl font-medium text-primary-600 dark:text-primary-400">
+                        Administrasi Perkantoran & Staff Operasional Logistik
+                    </p>
+
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl text-base sm:text-lg">
+                        Lulusan baru yang penuh semangat dan siap membawa energi positif ke dunia profesional. Dengan latar belakang pendidikan administrasi perkantoran, saya telah memperoleh pemahaman yang kuat tentang prinsip-prinsip administrasi perkantoran, manajemen data, serta operasional logistik gudang.
+                    </p>
+
+                    <!-- Quick Contact Badges -->
+                    <div class="flex flex-wrap gap-3 justify-center lg:justify-start pt-2">
+                        <a href="https://wa.me/6285881300604" target="_blank" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition-all shadow-md hover:shadow-lg">
+                            <i class="fab fa-whatsapp text-lg mr-2"></i> WhatsApp
+                        </a>
+                        <a href="mailto:mdimasys13@gmail.com" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-medium text-sm transition-all shadow-md hover:shadow-lg">
+                            <i class="fas fa-envelope text-lg mr-2"></i> Kirim Email
+                        </a>
+                        <button onclick="copyToClipboard('+6285881300604')" class="inline-flex items-center px-4 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium text-sm transition-all">
+                            <i class="fas fa-copy mr-2"></i> Salin No. HP
+                        </button>
+                    </div>
+
+                    <!-- Highlight Badges -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-200 dark:border-slate-800">
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-700/50 shadow-sm">
+                            <div class="text-primary-600 dark:text-primary-400 font-bold text-lg"><i class="fas fa-keyboard mr-1"></i> 10 Jari</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400">Kecepatan Mengetik</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-700/50 shadow-sm">
+                            <div class="text-primary-600 dark:text-primary-400 font-bold text-lg"><i class="fas fa-warehouse mr-1"></i> Warehouse</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400">Pengelolaan Gudang</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-700/50 shadow-sm col-span-2 sm:col-span-1">
+                            <div class="text-primary-600 dark:text-primary-400 font-bold text-lg"><i class="fas fa-truck-fast mr-1"></i> Logistik & 3PL</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400">Operasional Dispatcher</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="pendidikan" class="py-12 bg-white dark:bg-slate-800/50 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-2">
+                    <i class="fas fa-graduation-cap text-primary-600"></i> Riwayat Pendidikan
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2">
+                    Latar belakang akademik yang membentuk fondasi kedisiplinan, administrasi, dan sosial.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Bogor EduCARE -->
+                <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-primary-500/10 rounded-bl-full pointer-events-none"></div>
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 dark:bg-primary-900/60 text-primary-700 dark:text-primary-300 mb-2">
+                                2023 - 2025
+                            </span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Bogor EduCARE</h3>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium">Administrasi Perkantoran</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-xl bg-primary-600 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                            <i class="fas fa-building-user"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Memiliki keterampilan mendalam dalam mengelola berbagai tugas administratif, pengarsipan berkas, serta menyiapkan laporan formal dan korespondensi. Mahir menggunakan perangkat lunak perkantoran seperti Microsoft Office dan sistem manajemen data perkantoran.
+                    </p>
+                </div>
+
+                <!-- SMAN 4 Kota Bogor -->
+                <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-bl-full pointer-events-none"></div>
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 mb-2">
+                                2019 - 2022
+                            </span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">SMAN 4 Kota Bogor</h3>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium">Ilmu Pengetahuan Sosial (IPS)</p>
+                        </div>
+                        <div class="w-12 h-12 rounded-xl bg-slate-700 text-white flex items-center justify-center text-xl font-bold shadow-md">
+                            <i class="fas fa-school"></i>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Mengembangkan kemampuan analisis sosial dan pemahaman organisasi melalui studi Sejarah Indonesia, Sejarah Dunia, Ekonomi, serta Sosiologi untuk memperkuat kecerdasan emosional dan komunikasi interpersona.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="pengalaman" class="py-12 md:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-2">
+                    <i class="fas fa-briefcase text-primary-600"></i> Pengalaman Kerja
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2">
+                    Rekam jejak profesional dalam bidang pergudangan, operasional logistik, dan pengelolaan administrasi unit.
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative border-l-2 border-primary-500/30 ml-4 md:ml-32 space-y-8">
+
+                <!-- Experience 1 -->
+                <div class="relative pl-6 md:pl-8 group">
+                    <!-- Dot Marker -->
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-primary-600 border-4 border-slate-50 dark:border-slate-900 shadow"></div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Admin Warehouse</h3>
+                                <div class="text-primary-600 dark:text-primary-400 font-semibold text-sm">Sinar Abadi Home Centre</div>
+                            </div>
+                            <span class="inline-flex items-center text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700/60 px-3 py-1 rounded-full mt-2 sm:mt-0 w-max">
+                                <i class="far fa-calendar-alt mr-1.5"></i> Oktober - Januari
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm list-disc list-inside">
+                            <li>Mengelola inventaris di gudang secara sistematis, termasuk mencatat, memeriksa, dan memverifikasi kesesuaian fisik barang.</li>
+                            <li>Mengatur penerimaan dan alur pengiriman barang dengan cermat untuk memastikan akurasi stok.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="relative pl-6 md:pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-primary-600 border-4 border-slate-50 dark:border-slate-900 shadow"></div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Dispatcher (Staff Operasional)</h3>
+                                <div class="text-primary-600 dark:text-primary-400 font-semibold text-sm">PT Daisei Log Indonesia</div>
+                            </div>
+                            <span class="inline-flex items-center text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700/60 px-3 py-1 rounded-full mt-2 sm:mt-0 w-max">
+                                <i class="far fa-calendar-alt mr-1.5"></i> September - Maret
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm list-disc list-inside">
+                            <li>Mengelola dan bertanggung jawab penuh untuk kelancaran jadwal & rute pengiriman armada.</li>
+                            <li>Memproses penyerahan Dokumen Surat Jalan, pencatatan serah terima, serta pengelolaan barang Return secara efisien.</li>
+                            <li>Mengawasi dan mengelola unit armada agar operasional pengiriman berjalan tanpa kendala di lapangan.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="relative pl-6 md:pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-primary-600 border-4 border-slate-50 dark:border-slate-900 shadow"></div>
+                    
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Kontraktor Logistik (3PL)</h3>
+                                <div class="text-primary-600 dark:text-primary-400 font-semibold text-sm">CV Dago Putra Mandiri</div>
+                            </div>
+                            <span class="inline-flex items-center text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700/60 px-3 py-1 rounded-full mt-2 sm:mt-0 w-max">
+                                <i class="far fa-calendar-alt mr-1.5"></i> April - September
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm list-disc list-inside">
+                            <li>Menjamin ketersediaan pasokan barang, material, atau alat secara tepat waktu, tepat jumlah, dan tepat kualitas.</li>
+                            <li>Mendukung kelancaran operasional rantai pasok (supply chain) dengan standar ketelitian tinggi.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Abilities Section -->
+    <section id="keahlian" class="py-12 bg-white dark:bg-slate-800/50 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-2">
+                    <i class="fas fa-screwdriver-wrench text-primary-600"></i> Keahlian & Competencies
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2">
+                    Perangkat lunak, keahlian teknis, dan karakter personal pendukung kinerja profesional.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="p-3 bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 rounded-xl">
+                            <i class="fas fa-file-excel text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">Microsoft Excel</h3>
+                            <p class="text-xs text-slate-500">Pengolahan Data & Laporan</p>
+                        </div>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-green-500 h-full rounded-full" style="width: 88%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="p-3 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-xl">
+                            <i class="fas fa-file-word text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">Microsoft Word</h3>
+                            <p class="text-xs text-slate-500">Surat & Korespondensi</p>
+                        </div>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-blue-500 h-full rounded-full" style="width: 92%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="p-3 bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 rounded-xl">
+                            <i class="fas fa-keyboard text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">Mengetik 10 Jari</h3>
+                            <p class="text-xs text-slate-500">Akurasi & Kecepatan Tinggi</p>
+                        </div>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-purple-500 h-full rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="p-3 bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 rounded-xl">
+                            <i class="fas fa-folder-open text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">Software Administrasi</h3>
+                            <p class="text-xs text-slate-500">Sistem Manajemen Perkantoran</p>
+                        </div>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-amber-500 h-full rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 5 -->
+                <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="p-3 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 rounded-xl">
+                            <i class="fas fa-users-gear text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">Kepemimpinan</h3>
+                            <p class="text-xs text-slate-500">Koordinasi & Kepemimpinan</p>
+                        </div>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-indigo-500 h-full rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 6 -->
+                <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="p-3 bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 rounded-xl">
+                            <i class="fas fa-shield-halved text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white">Tanggung Jawab & Integritas</h3>
+                            <p class="text-xs text-slate-500">Sikap Kerja Profesional</p>
+                        </div>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-teal-500 h-full rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Typing Speed Demonstration -->
+    <section id="tes-mengetik" class="py-12 bg-slate-100 dark:bg-slate-900 no-print">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-xl">
+                <div class="text-center mb-6">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300 mb-2">
+                        <i class="fas fa-bolt mr-1"></i> Interactive Showcase
+                    </span>
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Uji Simulasi Kecepatan Mengetik 10 Jari</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                        Coba ketik kalimat administrasi di bawah ini untuk menguji atau mensimulasikan kecepatan input data!
+                    </p>
+                </div>
+
+                <!-- Text display -->
+                <div id="quoteDisplay" class="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 font-mono text-base sm:text-lg mb-4 text-slate-700 dark:text-slate-300 leading-relaxed select-none">
+                    Pengelolaan inventaris gudang dan surat jalan pengiriman membutuhkan ketelitian tinggi serta kecepatan mengetik 10 jari.
+                </div>
+
+                <!-- Input area -->
+                <textarea id="typingInput" rows="3" class="w-full p-4 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all resize-none" placeholder="Klik di sini dan mulai mengetik untuk memulai tes..."></textarea>
+
+                <!-- Live stats -->
+                <div class="grid grid-cols-3 gap-4 mt-4 text-center">
+                    <div class="bg-slate-50 dark:bg-slate-900/80 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <div id="wpmText" class="text-2xl font-black text-primary-600 dark:text-primary-400">0</div>
+                        <div class="text-xs text-slate-500">WPM (Kata/Menit)</div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-900/80 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <div id="accuracyText" class="text-2xl font-black text-emerald-600 dark:text-emerald-400">100%</div>
+                        <div class="text-xs text-slate-500">Akurasi</div>
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-900/80 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <div id="timeText" class="text-2xl font-black text-amber-600 dark:text-amber-400">0s</div>
+                        <div class="text-xs text-slate-500">Waktu</div>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex justify-end">
+                    <button id="resetTypingBtn" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+                        <i class="fas fa-rotate-right mr-1"></i> Reset Tes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-12 md:py-20 bg-white dark:bg-slate-800/50 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-2">
+                    <i class="fas fa-paper-plane text-primary-600"></i> Hubungi Saya
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2">
+                    Tertarik untuk merekrut atau mendiskusikan peluang kerja? Silakan hubungi saya melalui saluran di bawah ini.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Phone / WhatsApp Card -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center hover:border-primary-500 transition-all">
+                    <div class="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white text-lg">Telepon / WhatsApp</h3>
+                    <p class="text-slate-500 text-sm mt-1">+62 858-8130-0604</p>
+                    <a href="https://wa.me/6285881300604" target="_blank" class="inline-block mt-4 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline">
+                        Kirim Pesan WhatsApp &rarr;
+                    </a>
+                </div>
+
+                <!-- Email Card -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center hover:border-primary-500 transition-all">
+                    <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white text-lg">Alamat Email</h3>
+                    <p class="text-slate-500 text-sm mt-1">mdimasys13@gmail.com</p>
+                    <a href="mailto:mdimasys13@gmail.com" class="inline-block mt-4 text-xs font-bold text-primary-600 dark:text-primary-400 hover:underline">
+                        Kirim Email Langsung &rarr;
+                    </a>
+                </div>
+
+                <!-- Location Card -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center hover:border-primary-500 transition-all">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 dark:text-white text-lg">Domisili</h3>
+                    <p class="text-slate-500 text-sm mt-1">Bogor, Jawa Barat, Indonesia</p>
+                    <span class="inline-block mt-4 text-xs font-semibold text-slate-400">
+                        Siap Bekerja On-site / Remote
+                    </span>
+                </div>
+            </div>
+
+            <!-- Interactive Quick Message Form -->
+            <div class="max-w-2xl mx-auto bg-slate-50 dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 no-print">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 text-center">Kirim Pesan Singkat ke WhatsApp</h3>
+                <form id="contactForm" onsubmit="sendToWhatsApp(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Nama Perusahaan / Rekruter</label>
+                        <input type="text" id="senderName" required placeholder="Contoh: PT. Sumber Makmur (Bpk. Budi)" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-primary-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Pesan / Undangan Wawancara</label>
+                        <textarea id="senderMessage" rows="3" required placeholder="Halo Dimas, kami tertarik dengan profil Anda untuk posisi Admin Operasional..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-primary-500 focus:outline-none resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl text-sm transition-colors flex items-center justify-center space-x-2 shadow-md">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>Kirim via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-900 text-slate-400 text-xs sm:text-sm border-t border-slate-800 no-print">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+            <p>&copy; <span id="currentYear"></span> Muhamad Dimas Yudistira Saputra. All Rights Reserved.</p>
+            <p class="text-slate-500">Website Curriculum Vitae dibuat secara profesional & responsif.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Box -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-2xl transition-all duration-300 opacity-0 pointer-events-none transform translate-y-4 flex items-center space-x-2 text-xs font-semibold">
+        <i class="fas fa-circle-check text-emerald-400 dark:text-emerald-600 text-sm"></i>
+        <span id="toastMessage">Pesan berhasil disalin!</span>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Set dynamic current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Theme Toggle Functionality
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        // Check initial system or stored theme preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.className = 'fas fa-sun text-lg text-amber-400';
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.className = 'fas fa-moon text-lg';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.className = 'fas fa-moon text-lg';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.className = 'fas fa-sun text-lg text-amber-400';
+            }
+        });
+
+        // Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy text to clipboard function
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            showToast('Nomor HP (' + text + ') disalin ke clipboard!');
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.textContent = message;
+            
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }, 3000);
+        }
+
+        // Form WhatsApp Dispatcher
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            const name = document.getElementById('senderName').value;
+            const message = document.getElementById('senderMessage').value;
+            const text = `Halo Dimas, Saya ${name}.\n\n${message}`;
+            const url = `https://wa.me/6285881300604?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        // Interactive Typing Test Widget Logic
+        const quoteDisplay = document.getElementById('quoteDisplay');
+        const typingInput = document.getElementById('typingInput');
+        const wpmText = document.getElementById('wpmText');
+        const accuracyText = document.getElementById('accuracyText');
+        const timeText = document.getElementById('timeText');
+        const resetTypingBtn = document.getElementById('resetTypingBtn');
+
+        const sampleQuote = "Pengelolaan inventaris gudang dan surat jalan pengiriman membutuhkan ketelitian tinggi serta kecepatan mengetik 10 jari.";
+        let timer = null;
+        let timeElapsed = 0;
+        let isTimerRunning = false;
+
+        function startTypingTest() {
+            if (!isTimerRunning && typingInput.value.length > 0) {
+                isTimerRunning = true;
+                timer = setInterval(() => {
+                    timeElapsed++;
+                    timeText.textContent = timeElapsed + 's';
+                    calculateStats();
+                }, 1000);
+            }
+
+            calculateStats();
+        }
+
+        function calculateStats() {
+            const typedVal = typingInput.value;
+            const totalChars = typedVal.length;
+            
+            // Calculate WPM (Words Per Minute based on 5 chars = 1 word)
+            const words = totalChars / 5;
+            const minutes = timeElapsed > 0 ? timeElapsed / 60 : 1 / 60;
+            const wpm = Math.round(words / minutes);
+            wpmText.textContent = isNaN(wpm) ? 0 : wpm;
+
+            // Calculate accuracy
+            let correctChars = 0;
+            for (let i = 0; i < typedVal.length; i++) {
+                if (typedVal[i] === sampleQuote[i]) {
+                    correctChars++;
+                }
+            }
+            const accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+            accuracyText.textContent = accuracy + '%';
+
+            // Check if finished
+            if (typedVal === sampleQuote) {
+                clearInterval(timer);
+                isTimerRunning = false;
+                showToast(`Tes Selesai! Kecepatan: ${wpm} WPM | Akurasi: ${accuracy}%`);
+            }
+        }
+
+        function resetTypingTest() {
+            clearInterval(timer);
+            isTimerRunning = false;
+            timeElapsed = 0;
+            typingInput.value = '';
+            wpmText.textContent = '0';
+            accuracyText.textContent = '100%';
+            timeText.textContent = '0s';
+        }
+
+        typingInput.addEventListener('input', startTypingTest);
+        resetTypingBtn.addEventListener('click', resetTypingTest);
+    </script>
+</body>
+</html>
+```
